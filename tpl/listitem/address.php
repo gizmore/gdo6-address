@@ -1,6 +1,6 @@
 <?php
-use GDO\Address\Address;
-$address instanceof Address;
+use GDO\Address\GDO_Address;
+$address instanceof GDO_Address;
 $id = $address->getID();
 ?>
 <md-list-item class="md-2-line" ng-click="null" href="<?= href('Address', 'Crud', '&id='.$id); ?>">

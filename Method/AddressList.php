@@ -1,10 +1,10 @@
 <?php
 namespace GDO\Address\Method;
 
-use GDO\Address\Address;
+use GDO\Address\GDO_Address;
 use GDO\Table\MethodQueryList;
 
 final class AddressList extends MethodQueryList
 {
-    public function gdoTable() { return Address::table(); }
+    public function gdoTable() { return GDO_Address::table(); }
 }

@@ -7,6 +7,6 @@ final class GDT_Address extends GDT_Object
 {
     public function __construct()
     {
-        $this->table(Address::table());
+        $this->table(GDO_Address::table());
     }
 }

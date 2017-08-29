@@ -1,7 +1,7 @@
 <?php
 namespace GDO\Address;
 
-use GDO\Country\Country;
+use GDO\Country\GDO_Country;
 use GDO\Country\GDT_Country;
 use GDO\DB\GDO;
 use GDO\DB\GDT_AutoInc;
@@ -10,7 +10,7 @@ use GDO\DB\GDT_CreatedBy;
 use GDO\Template\GDT_Template;
 use GDO\Type\GDT_String;
 
-final class Address extends GDO
+final class GDO_Address extends GDO
 {
     ###########
     ### GDO ###
@@ -32,7 +32,7 @@ final class Address extends GDO
     ### Getter ###
     ##############
     /**
-     * @return Country
+     * @return GDO_Country
      */
     public function getCountry() { return $this->getValue('address_country'); }
     public function getCountryID() { return $this->getVar('address_country'); }

@@ -1,9 +1,9 @@
 <?php
 namespace GDO\Address;
 
-use GDO\Type\GDO_String;
+use GDO\Type\GDT_String;
 
-final class GDO_Phone extends GDO_String
+final class GDT_Phone extends GDT_String
 {
 	public function __construct()
 	{

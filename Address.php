@@ -2,13 +2,13 @@
 namespace GDO\Address;
 
 use GDO\Country\Country;
-use GDO\Country\GDO_Country;
+use GDO\Country\GDT_Country;
 use GDO\DB\GDO;
-use GDO\DB\GDO_AutoInc;
-use GDO\DB\GDO_CreatedAt;
-use GDO\DB\GDO_CreatedBy;
-use GDO\Template\GDO_Template;
-use GDO\Type\GDO_String;
+use GDO\DB\GDT_AutoInc;
+use GDO\DB\GDT_CreatedAt;
+use GDO\DB\GDT_CreatedBy;
+use GDO\Template\GDT_Template;
+use GDO\Type\GDT_String;
 
 final class Address extends GDO
 {
@@ -18,13 +18,13 @@ final class Address extends GDO
     public function gdoColumns()
     {
         return array(
-            GDO_AutoInc::make('address_id'),
-            GDO_Country::make('address_country'),
-            GDO_String::make('address_zip')->ascii()->caseS()->max(10)->label('zip'),
-            GDO_String::make('address_city')->max(128)->label('city'),
-            GDO_String::make('address_street')->max(128)->label('street'),
-            GDO_CreatedAt::make('address_created'),
-            GDO_CreatedBy::make('address_creator'),
+            GDT_AutoInc::make('address_id'),
+            GDT_Country::make('address_country'),
+            GDT_String::make('address_zip')->ascii()->caseS()->max(10)->label('zip'),
+            GDT_String::make('address_city')->max(128)->label('city'),
+            GDT_String::make('address_street')->max(128)->label('street'),
+            GDT_CreatedAt::make('address_created'),
+            GDT_CreatedBy::make('address_creator'),
         );
     }
     
@@ -48,5 +48,5 @@ final class Address extends GDO
     ##############
     ### Render ###
     ##############
-    public function renderList() { return GDO_Template::php('Address', 'listitem/address.php', ['address' => $this]); }
+    public function renderList() { return GDT_Template::php('Address', 'listitem/address.php', ['address' => $this]); }
 }

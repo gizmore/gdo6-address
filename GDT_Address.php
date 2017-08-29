@@ -1,9 +1,9 @@
 <?php
 namespace GDO\Address;
 
-use GDO\DB\GDO_Object;
+use GDO\DB\GDT_Object;
 
-final class GDO_Address extends GDO_Object
+final class GDT_Address extends GDT_Object
 {
     public function __construct()
     {

@@ -7,8 +7,8 @@ use GDO\Core\GDO;
 use GDO\DB\GDT_AutoInc;
 use GDO\DB\GDT_CreatedAt;
 use GDO\DB\GDT_CreatedBy;
-use GDO\Template\GDT_Template;
-use GDO\Type\GDT_String;
+use GDO\Core\GDT_Template;
+use GDO\DB\GDT_String;
 
 final class GDO_Address extends GDO
 {

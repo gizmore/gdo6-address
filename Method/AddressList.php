@@ -6,5 +6,5 @@ use GDO\Table\MethodQueryList;
 
 final class AddressList extends MethodQueryList
 {
-    public function gdoTable() { return GDO_Address::table(); }
+	public function gdoTable() { return GDO_Address::table(); }
 }

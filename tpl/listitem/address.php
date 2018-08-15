@@ -5,7 +5,7 @@ $id = $address->getID();
 ?>
 <li class="md-list-item md-2-line" ng-click="null" href="<?= href('Address', 'Crud', '&id='.$id); ?>">
   <div class="md-list-item-text" layout="column">
-    <h3><?= html($address->getStreet()); ?></h3>
-    <p><?= html(t('address_line', [$address->getZIP(), $address->getCity(), $address->getCountry()->displayName()])); ?></p>
+	<h3><?= html($address->getStreet()); ?></h3>
+	<p><?= html(t('address_line', [$address->getZIP(), $address->getCity(), $address->getCountry()->displayName()])); ?></p>
   </div>
 </li>

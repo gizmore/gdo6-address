@@ -40,6 +40,14 @@ final class GDO_Address extends GDO
 	public function getCity() { return $this->getVar('address_city'); }
 	public function getStreet() { return $this->getVar('address_street'); }
 	
+	##############
+	### Helper ###
+	##############
+	public function emptyAddress()
+	{
+		return (!($this->getCountryID() || $this->getZIP() || $this->getStreet() || $this->getCity()));
+	}
+	
 	############
 	### HREF ###
 	############

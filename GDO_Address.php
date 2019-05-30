@@ -56,5 +56,6 @@ final class GDO_Address extends GDO
 	##############
 	### Render ###
 	##############
+	public function renderCell() { return GDT_Address::make()->gdo($this)->renderCell(); }
 	public function renderList() { return GDT_Template::php('Address', 'listitem/address.php', ['address' => $this]); }
 }

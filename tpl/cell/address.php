@@ -10,9 +10,8 @@ use GDO\Country\GDO_Country;
 $gdt instanceof GDT_Address;
 $gdo = $gdt->gdo;
 $address = GDO_Address::blank($gdo->getGDOVars());
-$country = GDO_Country::blank($gdo->getGDOVars())->setPersisted();
+$country = GDO_Country::getByISOOrUnknown($address->getCountryID());
 ?>
-<li>
 <?php if (!$address->emptyAddress()) : ?>
 <?php echo $address->getStreet(); ?>,
 <?php echo html($address->getCity()); ?>,
@@ -20,4 +19,3 @@ $country = GDO_Country::blank($gdo->getGDOVars())->setPersisted();
 <?php else: ?>
 <?php echo t('---n/a---'); ?>
 <?php endif; ?>
-</li>

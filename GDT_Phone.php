@@ -5,6 +5,8 @@ use GDO\DB\GDT_String;
 
 final class GDT_Phone extends GDT_String
 {
+	public function defaultLabel() { return $this->label('phone'); }
+	
 	public function __construct()
 	{
 		$this->min = 7;

@@ -4,4 +4,7 @@ return array(
 'list_address_list' => 'Addresses',
 'address' => 'Address',
 'phone' => 'Phone',
+'zip' => 'ZIP',
+'city' => 'City',
+'street' => 'Street',
 );

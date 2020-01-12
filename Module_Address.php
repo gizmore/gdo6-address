@@ -6,6 +6,12 @@ use GDO\User\GDO_User;
 use GDO\User\GDO_UserSetting;
 use GDO\UI\GDT_Divider;
 
+/**
+ * Module that adds address related functionality.
+ * @author gizmore
+ * @version 6.10
+ * @since 6.02
+ */
 final class Module_Address extends GDO_Module
 {
 	public $module_priority = 10;
@@ -30,16 +36,31 @@ final class Module_Address extends GDO_Module
 	public function cfgCity() { return $this->getConfigVar('address_city'); }
 	public function cfgStreet() { return $this->getConfigVar('address_street'); }
 	
+	public function cfgName() { return $this->getConfigVar('address_name'); }
+	public function cfgPhone() { return $this->getConfigVar('address_phone'); }
+	public function cfgMobile() { return $this->getConfigVar('address_phone_fax'); }
+	public function cfgFax() { return $this->getConfigVar('address_phone_mobile'); }
+	public function cfgEmail() { return $this->getConfigVar('address_email'); }
+	
 	public function cfgAddress()
 	{
 		return GDO_Address::blank(array(
+			'address_name' => $this->cfgName(),
 			'address_country' => $this->cfgCountryId(),
 			'address_zip' => $this->cfgZIP(),
 			'address_city' => $this->cfgCity(),
 			'address_street' => $this->cfgStreet(),
+			'address_phone' => $this->cfgPhone(),
+			'address_phone_fax' => $this->cfgMobile(),
+			'address_phone_mobile' => $this->cfgFax(),
+			'address_email' => $this->cfgEmail(),
 		));
 	}
 	
+	public function getUserSettings()
+	{
+		return GDO_Address::table()->gdoColumnsExcept('address_id', 'address_created', 'address_creator');
+	}
 	
 	public function getUserConfig()
 	{
@@ -48,23 +69,25 @@ final class Module_Address extends GDO_Module
 		);
 	}
 	
-	public function cfgUserAddress()
+	public function cfgUserAddress(GDO_User $user)
 	{
-		if ($address = GDO_UserSetting::get('user_address')->getValue())
+		if ($address = GDO_UserSetting::userGet($user, 'user_address')->getValue())
 		{
 			return $address;
 		}
 		else
 		{
-			return GDO_Address::blank();
+			return GDO_Address::blank(array(
+				'address_zip' => t('zip'),
+				'address_city' => t('city'),
+				'address_street' => t('street'),
+			));
 		}
 	}
 	
-	public function getUserSettings()
-	{
-		return GDO_Address::table()->gdoColumnsExcept('address_id', 'address_created', 'address_creator');
-	}
-	
+	############
+	### Hook ###
+	############
 	public function hookUserSettingSaved(GDO_Module $module, GDO_User $user, array $changes)
 	{
 		if ($module === $this)

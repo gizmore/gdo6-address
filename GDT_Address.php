@@ -36,6 +36,18 @@ final class GDT_Address extends GDT_Object
 		);
 		return GDT_Template::php('Address', 'cell/address.php', $tVars);
 	}
+	
+	public $small = false;
+	public function small($small) { $this->small = $small; return $this; } 
+	
+	public function renderPDF()
+	{
+		$tVars = array(
+			'field' => $this,
+			'address' => $this->gdo,
+		);
+		return GDT_Template::php('Address', 'card/address_pdf.php', $tVars);
+	}
 
 	public function filterQuery(Query $query)
 	{

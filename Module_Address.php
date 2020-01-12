@@ -26,7 +26,10 @@ final class Module_Address extends GDO_Module
 			array(
 				GDT_Divider::make('div_owner_address')->label('div_owner_address'),
 			),
-			GDO_Address::table()->gdoColumnsExcept('address_id', 'address_created', 'address_creator'),
+			GDO_Address::table()->gdoColumnsExcept(
+				'address_id', 'address_created', 'address_creator',
+				'div_company_address', 'div_person_address', 'div_contact_address'
+			),
 		);
 	}
 	

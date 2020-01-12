@@ -6,5 +6,7 @@ use GDO\Table\MethodQueryList;
 
 final class AddressList extends MethodQueryList
 {
+	public function getPermission() { return 'staff'; }
+	
 	public function gdoTable() { return GDO_Address::table(); }
 }

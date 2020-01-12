@@ -1,10 +1,12 @@
 <?php
 namespace GDO\Address;
 
-use GDO\DB\GDT_Object;
 use GDO\Core\GDT_Template;
 use GDO\DB\Query;
 use GDO\Core\GDO;
+use GDO\DB\GDT_ObjectSelect;
+use GDO\User\GDO_User;
+use GDO\User\GDO_UserSetting;
 
 /**
  * A GDT_Object for GDO_Address.
@@ -12,12 +14,30 @@ use GDO\Core\GDO;
  * @author gizmore
  * @see \GDO\Address\GDO_Address
  */
-final class GDT_Address extends GDT_Object
+final class GDT_Address extends GDT_ObjectSelect
 {
 	public function __construct()
 	{
 		$this->table(GDO_Address::table());
 		$this->orderField = 'address_street';
+	}
+	
+	public $onlyOwn = false;
+	public function onlyOwn($onlyOwn=true)
+	{
+		$this->onlyOwn = $onlyOwn;
+		return $this;
+	}
+	
+	public function getChoices()
+	{
+		if ($this->onlyOwn)
+		{
+			$uid = GDO_User::current()->getID();
+			$this->val(GDO_UserSetting::get('user_address')->getVar());
+			return $this->table->allWhere("address_creator=$uid");
+		}
+		return $this->table->all();
 	}
 	
 	/**

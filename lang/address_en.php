@@ -7,4 +7,8 @@ return array(
 'zip' => 'ZIP',
 'city' => 'City',
 'street' => 'Street',
+	
+'user_address' => 'Adress Object',
+'div_owner_address' => 'Owner adress',
+	
 );

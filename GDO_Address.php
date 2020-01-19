@@ -63,6 +63,9 @@ final class GDO_Address extends GDO
 	public function getMobile() { return $this->getVar('address_phone_mobile'); }
 	public function getEmail() { return $this->getVar('address_email'); }
 	
+	public function getVAT() { return $this->getVar('address_vat'); }
+	public function getCompany() { return $this->getVar('address_company'); }
+	
 	/**
 	 * @return GDO_User
 	 */

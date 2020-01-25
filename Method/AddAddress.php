@@ -8,6 +8,7 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\GDT_AntiCSRF;
 use GDO\User\GDO_UserSetting;
 use GDO\Core\Website;
+use GDO\Util\Common;
 
 final class AddAddress extends MethodForm
 {
@@ -25,7 +26,7 @@ final class AddAddress extends MethodForm
 	{
 		$address = GDO_Address::blank($form->getFormData())->insert();
 		GDO_UserSetting::set('user_address', $address->getID());
-		return $this->message('msg_address_created_and_selected')->add(Website::redirectBack(12));
+		return $this->message('msg_address_created_and_selected')->add(Website::redirect(Common::getRequestString('rb')));
 	}
 
 }

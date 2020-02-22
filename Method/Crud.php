@@ -6,6 +6,8 @@ use GDO\Form\MethodCrud;
 
 final class Crud extends MethodCrud
 {
+	public function showInSitemap() { return false; }
+	
 	public function hrefList() { return href('Address', 'AddressList'); }
 
 	public function gdoTable() { return GDO_Address::table(); }

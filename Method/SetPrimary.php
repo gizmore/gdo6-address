@@ -29,7 +29,14 @@ final class SetPrimary extends Method
 	
 	public function hasUserPermission(GDO_User $user)
 	{
-		return $this->address->getCreator() === $user ? true : $this->error('err_invalid_choice');
+		if ($this->address)
+		{
+			return $this->address->getCreator() === $user ? true : $this->error('err_invalid_choice');
+		}
+		else
+		{
+			return $this->error('err_no_permission');
+		}
 	}
 	
 	public function execute()

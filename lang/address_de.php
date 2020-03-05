@@ -26,5 +26,5 @@ return array(
 'div_person_address' => 'Personendaten',
 'div_contact_address' => 'Kontaktdaten',
 'address_choice' => '%s - %s',
-	
+'mdescr_address_addaddress' => 'Adresse hinzufügen',	
 );

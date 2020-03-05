@@ -8,6 +8,8 @@ use GDO\UI\GDT_Button;
 
 final class OwnAddresses extends MethodQueryTable
 {
+	public function isUserRequired() { return true; }
+	
 	public function getQuery()
 	{
 		$uid = GDO_User::current()->getID();

@@ -22,7 +22,8 @@ return array(
 	
 # Add
 'ft_address_addaddress' => 'Add Adress',
-	'div_company_address' => 'Firmendaten',
-	'div_person_address' => 'Personendaten',
-	'div_contact_address' => 'Kontaktdaten',
+'div_company_address' => 'Firmendaten',
+'div_person_address' => 'Personendaten',
+'div_contact_address' => 'Kontaktdaten',
+'mdescr_address_addaddress' => 'Add Adress',
 );

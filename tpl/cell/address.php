@@ -1,5 +1,4 @@
 <?php
-use GDO\LinkUUp\LUP_Room;
 use GDO\Address\GDO_Address;
 use GDO\Address\GDT_Address;
 use GDO\Country\GDO_Country;

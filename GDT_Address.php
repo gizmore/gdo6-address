@@ -34,7 +34,7 @@ final class GDT_Address extends GDT_ObjectSelect
 		if ($this->onlyOwn)
 		{
 			$uid = GDO_User::current()->getID();
-			$this->val(GDO_UserSetting::get('user_address')->getVar());
+			$this->var(GDO_UserSetting::get('user_address')->getVar());
 			return $this->table->allWhere("address_creator=$uid");
 		}
 		return $this->table->all();

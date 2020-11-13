@@ -6,7 +6,7 @@ use GDO\DB\Query;
 use GDO\Core\GDO;
 use GDO\DB\GDT_ObjectSelect;
 use GDO\User\GDO_User;
-use GDO\User\GDO_UserSetting;
+use GDO\Account\Module_Account;
 
 /**
  * A GDT_Object for GDO_Address.
@@ -34,7 +34,7 @@ final class GDT_Address extends GDT_ObjectSelect
 		if ($this->onlyOwn)
 		{
 			$uid = GDO_User::current()->getID();
-			$this->var(GDO_UserSetting::get('user_address')->getVar());
+			$this->var(Module_Account::instance()->settingVar('user_address'));
 			return $this->table->allWhere("address_creator=$uid");
 		}
 		return $this->table->all();

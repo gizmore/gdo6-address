@@ -3,7 +3,6 @@ namespace GDO\Address;
 
 use GDO\Core\GDO_Module;
 use GDO\User\GDO_User;
-use GDO\User\GDO_UserSetting;
 use GDO\UI\GDT_Divider;
 
 /**
@@ -74,7 +73,7 @@ final class Module_Address extends GDO_Module
 	
 	public function cfgUserAddress(GDO_User $user)
 	{
-		if ($address = GDO_UserSetting::userGet($user, 'user_address')->getValue())
+		if ($address = $this->userSettingValue($user, 'user_address'))
 		{
 			return $address;
 		}
@@ -102,12 +101,12 @@ final class Module_Address extends GDO_Module
 	private function updateUserAddress(GDO_User $user)
 	{
 		$address = GDO_Address::blank(array(
-			'address_country' => GDO_UserSetting::get('address_country')->getVar(),
-			'address_zip' => GDO_UserSetting::get('address_zip')->getVar(),
-			'address_city' => GDO_UserSetting::get('address_city')->getVar(),
-			'address_street' => GDO_UserSetting::get('address_street')->getVar(),
+		    'address_country' => $this->userSettingVar($user, 'address_country'),
+		    'address_zip' => $this->userSettingVar($user, 'address_zip'),
+		    'address_city' => $this->userSettingVar($user, 'address_city'),
+		    'address_street' => $this->userSettingVar($user, 'address_street'),
 		))->insert();
-		GDO_UserSetting::set('user_address', $address->getID());
+		$this->saveUserSetting($user, 'user_address', $address->getID());
 	}
 
 }

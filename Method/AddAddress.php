@@ -6,9 +6,9 @@ use GDO\Form\MethodForm;
 use GDO\Address\GDO_Address;
 use GDO\Form\GDT_Submit;
 use GDO\Form\GDT_AntiCSRF;
-use GDO\User\GDO_UserSetting;
 use GDO\Core\Website;
 use GDO\Util\Common;
+use GDO\Address\Module_Address;
 
 final class AddAddress extends MethodForm
 {
@@ -25,7 +25,7 @@ final class AddAddress extends MethodForm
 	public function formValidated(GDT_Form $form)
 	{
 		$address = GDO_Address::blank($form->getFormData())->insert();
-		GDO_UserSetting::set('user_address', $address->getID());
+		Module_Address::instance()->saveSetting('user_address', $address->getID());
 		return $this->message('msg_address_created_and_selected')->add(Website::redirect(Common::getRequestString('rb')));
 	}
 

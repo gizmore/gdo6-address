@@ -69,18 +69,18 @@ final class GDT_Address extends GDT_ObjectSelect
 		return GDT_Template::php('Address', 'card/address_pdf.php', $tVars);
 	}
 
-	public function filterQuery(Query $query)
+	public function filterQuery(Query $query, $rq=null)
 	{
-		if ($filter = $this->filterValue())
+		if ($filter = $this->filterVar($rq))
 		{
 			$filter = GDO::escapeSearchS($filter);
 			$this->filterQueryCondition($query, "address_zip LIKE '%$filter%' OR address_city LIKE '%$filter%' OR address_street LIKE '%$filter%'");
 		}
 	}
 	
-	public function filterGDO(GDO $gdo)
+	public function filterGDO(GDO $gdo, $rq)
 	{
-		if ('' !== ($filter = (string)$this->filterValue()))
+		if ($filter = (string)$this->filterVar($rq))
 		{
 			$address = $this->getAddress();
 			$fields = array(

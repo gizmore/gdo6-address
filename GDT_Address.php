@@ -16,7 +16,7 @@ use GDO\Account\Module_Account;
  */
 final class GDT_Address extends GDT_ObjectSelect
 {
-	public function __construct()
+	protected function __construct()
 	{
 		$this->table(GDO_Address::table());
 		$this->orderField = 'address_street';

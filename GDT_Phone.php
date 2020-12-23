@@ -7,7 +7,7 @@ final class GDT_Phone extends GDT_String
 {
 	public function defaultLabel() { return $this->label('phone'); }
 	
-	public function __construct()
+	protected function __construct()
 	{
 		$this->min = 7;
 		$this->max = 20;

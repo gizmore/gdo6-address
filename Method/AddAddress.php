@@ -16,10 +16,8 @@ final class AddAddress extends MethodForm
 	{
 		$fields = GDO_Address::table()->gdoColumnsExcept('address_id', 'address_creator', 'address_created');
 		$form->addFields($fields);
-		$form->addFields(array(
-			GDT_Submit::make(),
-			GDT_AntiCSRF::make(),
-		));
+		$form->addField(GDT_AntiCSRF::make());
+		$form->actions()->addField(GDT_Submit::make());
 	}
 	
 	public function formValidated(GDT_Form $form)

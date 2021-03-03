@@ -25,7 +25,7 @@ final class GDO_Address extends GDO
 			GDT_AutoInc::make('address_id'),
 			GDT_Divider::make('div_company_address')->label('div_company_address'),
 			GDT_Realname::make('address_company')->label('company'),
-			GDT_Vat::make('address_vat'),
+			GDT_VAT::make('address_vat'),
 			# Required
 			GDT_Divider::make('div_person_address')->label('div_person_address'),
 			GDT_Realname::make('address_name')->label('address_name'),

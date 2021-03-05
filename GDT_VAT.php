@@ -16,4 +16,9 @@ final class GDT_VAT extends GDT_String
     public $encoding = self::ASCII;
     public $caseSensitive = false;
 
+    public function plugVar()
+    {
+        return '38/107/05324';
+    }
+
 }

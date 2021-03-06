@@ -14,16 +14,19 @@ return array(
 'fax' => 'Fax',
 'mobilephone' => 'Mobile',
 	
-'user_address' => 'Adress Object',
-'div_owner_address' => 'Owner adress',
+'user_address' => 'Address Object',
+'div_owner_address' => 'Owner address',
 'link_add_address' => 'Add Address',
-'link_own_addresses' => 'Your Adresses',
+'link_own_addresses' => 'Your Addresses',
 'btn_set_primary_address' => 'Primary',
 	
 # Add
-'ft_address_addaddress' => 'Add Adress',
-'div_company_address' => 'Firmendaten',
-'div_person_address' => 'Personendaten',
-'div_contact_address' => 'Kontaktdaten',
-'mdescr_address_addaddress' => 'Add Adress',
+'ft_address_addaddress' => 'Add Address',
+'div_company_address' => 'Company data',
+'div_person_address' => 'Personal data',
+'div_contact_address' => 'Contact data',
+'mdescr_address_addaddress' => 'Add Address',
+    
+# Primary
+'msg_address_set_primary' => 'Your primary address has been set.',
 );

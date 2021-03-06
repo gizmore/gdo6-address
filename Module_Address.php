@@ -7,8 +7,11 @@ use GDO\UI\GDT_Divider;
 
 /**
  * Module that adds address related functionality.
+ * ModuleConfig: site owner address data
+ * UserConfig: primary user address
+ * UserSettings: primary user address data
  * @author gizmore
- * @version 6.10
+ * @version 6.10.1
  * @since 6.02
  */
 final class Module_Address extends GDO_Module
@@ -21,10 +24,9 @@ final class Module_Address extends GDO_Module
 	
 	public function getConfig()
 	{
-		return array_merge(
-			array(
+		return array_merge([
 				GDT_Divider::make('div_owner_address')->label('div_owner_address'),
-			),
+			],
 			GDO_Address::table()->gdoColumnsExcept(
 				'address_id', 'address_created', 'address_creator',
 				'div_company_address', 'div_person_address', 'div_contact_address'
@@ -46,7 +48,7 @@ final class Module_Address extends GDO_Module
 	
 	public function cfgAddress()
 	{
-		return GDO_Address::blank(array(
+		return GDO_Address::blank([
 			'address_name' => $this->cfgName(),
 			'address_country' => $this->cfgCountryId(),
 			'address_zip' => $this->cfgZIP(),
@@ -56,7 +58,7 @@ final class Module_Address extends GDO_Module
 			'address_phone_fax' => $this->cfgMobile(),
 			'address_phone_mobile' => $this->cfgFax(),
 			'address_email' => $this->cfgEmail(),
-		));
+		]);
 	}
 	
 	public function getUserSettings()
@@ -66,9 +68,9 @@ final class Module_Address extends GDO_Module
 	
 	public function getUserConfig()
 	{
-		return array(
+		return [
 			GDT_Address::make('user_address'),
-		);
+		];
 	}
 	
 	public function cfgUserAddress(GDO_User $user)
@@ -79,11 +81,11 @@ final class Module_Address extends GDO_Module
 		}
 		else
 		{
-			return GDO_Address::blank(array(
+			return GDO_Address::blank([
 				'address_zip' => t('zip'),
 				'address_city' => t('city'),
 				'address_street' => t('street'),
-			));
+			]);
 		}
 	}
 	
@@ -100,12 +102,12 @@ final class Module_Address extends GDO_Module
 	
 	private function updateUserAddress(GDO_User $user)
 	{
-		$address = GDO_Address::blank(array(
+	    $address = GDO_Address::blank([
 		    'address_country' => $this->userSettingVar($user, 'address_country'),
 		    'address_zip' => $this->userSettingVar($user, 'address_zip'),
 		    'address_city' => $this->userSettingVar($user, 'address_city'),
 		    'address_street' => $this->userSettingVar($user, 'address_street'),
-		))->insert();
+	    ])->insert();
 		$this->saveUserSetting($user, 'user_address', $address->getID());
 	}
 

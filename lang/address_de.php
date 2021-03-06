@@ -1,5 +1,5 @@
 <?php
-return array(
+return [
 'gdo_address' => 'Addresse',
 'list_address_list' => 'Addressen',
 'address' => 'Addresse',
@@ -27,4 +27,7 @@ return array(
 'div_contact_address' => 'Kontaktdaten',
 'address_choice' => '%s - %s',
 'mdescr_address_addaddress' => 'Adresse hinzufügen',	
-);
+
+# Primary
+'msg_address_set_primary' => 'Ihre Hauptadresse wurde gesetzt.',
+];

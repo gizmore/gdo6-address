@@ -10,6 +10,12 @@ use GDO\Core\Website;
 use GDO\Util\Common;
 use GDO\Address\Module_Address;
 
+/**
+ * Add an address to your account.
+ * @author gizmore
+ * @version 6.10.1
+ * @since 6.4.0
+ */
 final class AddAddress extends MethodForm
 {
 	public function createForm(GDT_Form $form)

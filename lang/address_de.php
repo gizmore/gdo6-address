@@ -30,4 +30,5 @@ return [
 
 # Primary
 'msg_address_set_primary' => 'Ihre Hauptadresse wurde gesetzt.',
+'address_choice' => '%s - %s',
 ];

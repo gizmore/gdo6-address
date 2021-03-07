@@ -29,4 +29,5 @@ return array(
     
 # Primary
 'msg_address_set_primary' => 'Your primary address has been set.',
+'address_choice' => '%s - %s',
 );

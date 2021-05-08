@@ -30,4 +30,8 @@ return array(
 # Primary
 'msg_address_set_primary' => 'Your primary address has been set.',
 'address_choice' => '%s - %s',
+    
+# Meta    
+'mdescr_address_addresslist' => 'Search through the adress table.',
+'mdescr_address_ownaddresses' => 'Show all your entered adresses.',
 );

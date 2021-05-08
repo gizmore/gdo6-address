@@ -31,4 +31,9 @@ return [
 # Primary
 'msg_address_set_primary' => 'Ihre Hauptadresse wurde gesetzt.',
 'address_choice' => '%s - %s',
+    
+#Meta
+'mdescr_address_addresslist' => 'Durchsuchen Sie Ihre eingetragenen Adressen.',
+'mdescr_address_addresslist' => 'Search through the adress table.',
+'mdescr_address_ownaddresses' => 'Show all your entered adresses.',
 ];

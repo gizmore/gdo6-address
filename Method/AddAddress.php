@@ -30,7 +30,7 @@ final class AddAddress extends MethodForm
 	{
 		$address = GDO_Address::blank($form->getFormData())->insert();
 		Module_Address::instance()->saveSetting('user_address', $address->getID());
-		return $this->message('msg_address_created_and_selected')->add(Website::redirect(Common::getRequestString('rb')));
+		return $this->message('msg_address_created_and_selected')->addField(Website::redirect(Common::getRequestString('rb')));
 	}
 
 }

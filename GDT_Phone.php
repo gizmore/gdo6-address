@@ -10,7 +10,7 @@ use GDO\DB\GDT_String;
  * @TODO write a phone-validator module that uses gdo6-sms to validate a phone.
  * 
  * @author gizmore
- * @version 6.10.1
+ * @version 6.10.4
  * @since 6.8.0
  */
 final class GDT_Phone extends GDT_String
@@ -24,6 +24,7 @@ final class GDT_Phone extends GDT_String
 		$this->max = 20;
 		$this->pattern = "#^\\+?[-/0-9 ]+$#Ds";
 		$this->encoding = self::ASCII;
+		$this->icon('phone');
 	}
 	
 	public function plugVar()

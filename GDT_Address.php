@@ -13,7 +13,7 @@ use GDO\User\GDO_User;
  * Can restrict to own addresses.
  * @author gizmore
  * @see GDO_Address
- * @version 6.10.1
+ * @version 6.10.6
  * @since 6.02
  */
 final class GDT_Address extends GDT_ObjectSelect

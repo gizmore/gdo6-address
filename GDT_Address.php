@@ -35,7 +35,10 @@ final class GDT_Address extends GDT_ObjectSelect
 		    # current uid
 			$uid = GDO_User::current()->getID();
 			# autoselect primary address
-			$this->var(Module_Address::instance()->settingVar('user_address'));
+			if (module_enabled('Address'))
+			{
+				$this->var(Module_Address::instance()->settingVar('user_address'));
+			}
 			# query all own addresses
 			return $this->table->allWhere("address_creator=$uid");
 		}

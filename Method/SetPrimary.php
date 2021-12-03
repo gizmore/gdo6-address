@@ -25,7 +25,7 @@ final class SetPrimary extends Method
 		];
 	}
 	
-	public function init()
+	public function onInit()
 	{
 		$this->address = $this->gdoParameterValue('id');
 	}
